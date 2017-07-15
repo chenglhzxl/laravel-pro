@@ -63,6 +63,8 @@
                 margin-bottom: 30px;
             }
         </style>
+        <script type="text/javascript" src="/js/jQuery-2.2.0.min.js"></script>
+        <script src="/js/page/chenglh.js"></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -79,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <a href="javascript:;" onclick="turnto()">Chenglh_blog</a>
                 </div>
 
                 <div class="links">

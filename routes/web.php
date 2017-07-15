@@ -11,11 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/about', 'Page\PageController@getAbout')->name('about');
+Route::get('/', 'Admin\AdminController@index')->name('index');
