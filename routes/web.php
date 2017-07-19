@@ -13,3 +13,5 @@
 
 Route::get('/about', 'Page\PageController@getAbout')->name('about');
 Route::get('/', 'Admin\AdminController@index')->name('index');
+Route::get('/article', 'Article\ArticleController@getArticleLists')->name('article');
+Route::get('/article/edit', 'Article\ArticleController@getArticleEdit')->name('article-edit');

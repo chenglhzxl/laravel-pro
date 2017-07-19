@@ -24,6 +24,24 @@ main{padding-bottom:100px;background-color: #bdb76b;}/* main的padding-bottom值
 .header-cnsty {
     font-style: oblique;
 }
+.header-title {
+    float: right;
+    margin-top: -48px;
+}
+.header-title div {
+    margin-top: 13px;
+}
+
+.header-title a{
+    color: rebeccapurple;
+}
+.header-title a:hover{
+    color: red;
+    font-style: oblique;
+}
+
+
+
 footer {
     position:absolute;
     bottom:0;

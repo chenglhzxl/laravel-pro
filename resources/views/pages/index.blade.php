@@ -8,7 +8,7 @@
 @section('content')
     <section class="content">
         <div>
-            chenglh---------------程露红的网站(建设中，敬请期待)
+            chenglh---------------欢迎来到程露红的网站(建设中，敬请期待)
         </div>
     </section>
 @endsection
