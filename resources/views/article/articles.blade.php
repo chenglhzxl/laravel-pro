@@ -24,18 +24,21 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($articleLists as $articleList)
+            @foreach($articleLists as $index=>$articleList)
                 <tr>
                     {{--{{dd($articleList)}}--}}
-                    <td>{{$articleList['id']}}</td>
+                    <td>{{$index+1}}</td>
                     <td>{{$articleList['title']}}</td>
                     <td>{{$articleList['abstract']}}</td>
                     {{--<td>{{$articleList['content']}}</td>--}}
                     <td>{{$articleList['created_at']}}</td>
-                    <td><a href="javascript:;">编辑</a> | 删除</td>
+                    <td><a href="{{route('article-edit',['id'=>$articleList['id']])}}">编辑</a> | <a href="javascript:;" onclick="article_delete({{$articleList['id']}})">删除</a></td>
 {{--                    <td><a href="{{route('article-edit',['id'=>$articleList['id']])}}">编辑</a> | 删除</td>--}}
                 </tr>
             @endforeach
+            @if(empty($articleLists))
+                <tr><td colspan="5">暂时没有文章</td></tr>
+            @endif
             </tbody>
         </table>
     </section>
