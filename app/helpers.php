@@ -11,3 +11,13 @@ function alertMsg($status, $msg="", $errorMsg="")
 {
     return ['status' => ($status == 0 ? false : true), 'msg' => $msg, 'error' => ['message' => $errorMsg]];
 }
+
+function getCurrentUser()
+{
+    $user = session('cxy.login.userid');
+    $name = '';
+    if($user){
+        $name = \App\Models\Users::where('id',$user)->where('isdeleted',0)->first()->name;
+    }
+    return $name;
+}

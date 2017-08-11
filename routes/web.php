@@ -13,6 +13,12 @@
 
 Route::get('/about', 'Page\PageController@getAbout')->name('about');
 Route::get('/', 'Admin\AdminController@index')->name('index');
+Route::get('/login', 'Admin\AdminController@login')->name('login');
+Route::post('/login', 'Admin\AdminController@loginIn');
+Route::get('/register', 'Admin\AdminController@register')->name('register');
+Route::get('login/captcha', 'Admin\AdminController@loginCaptchaAction')->name('captcha');
+
+
 Route::get('/article', 'Article\ArticleController@getArticleLists')->name('article');
 Route::get('/article/add', 'Article\ArticleController@articleAdd')->name('article-add');
 Route::post('/article/add', 'Article\ArticleController@postArticleAdd')->name('article-add-post');
