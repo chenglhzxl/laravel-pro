@@ -11,10 +11,25 @@ use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
-    public function getArticleLists()
+    public function getArticleLists(Request $request)
     {
-        $articleLists = Article::select('*')->where('isdeleted', 0)->get()->toarray();
-        return view('article.articles', compact('articleLists'));
+        $params = $request->all();
+        $articleList = Article::select('*')->where('isdeleted', 0);
+        $limit = isset($params["per_page"]) ? intval($params["per_page"]) : 10;
+        $current = isset($params["current_page"]) ? intval($params["current_page"]) : '';
+        $results = $articleList->paginate($limit, $columns = ['*'], $pageName = 'page', $current);
+        $response = [
+            'pagination' => [
+                'total' => $results->total(),
+                'per_page' => $results->perPage(),
+                'current_page' => $results->currentPage(),
+                'last_page' => $results->lastPage(),
+                'from' => $results->firstItem(),
+                'to' => $results->lastItem()
+            ]
+        ];
+        $articleLists = $articleList->orderBy("id", "desc")->get()->toarray();
+        return view('article.articles', compact('articleLists','response'));
     }
 
     public function articleAdd()

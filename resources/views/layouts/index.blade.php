@@ -64,11 +64,13 @@
     <h2>我爱程序媛</h2>
     <p><a href="http://weibo.com/u/1712433191" target="_blank">Blog</a></p>
     <p><a href="https://github.com/chenglhzxl" target="_blank">Github</a></p>
-    <p><a href="http://weibo.com/u/1712433191" target="_blank">微博</a></p>
+    <p><a href="http://weibo.com/u/1712433191" target="_blank">学习视频</a></p>
     @if(getCurrentUser())
-        <p><a href="{{route('article')}}" target="_blank">文章</a></p>
-    @endif
+        <p><a href="{{route('article')}}" target="_blank">我的文章</a></p>
+        <p><a href="{{route('logout')}}" target="_blank">退出</a></p>
+    @else
     <p><a href="{{route('login')}}" target="_blank">登录</a></p>
+    @endif
 </div>
 <canvas></canvas>
 

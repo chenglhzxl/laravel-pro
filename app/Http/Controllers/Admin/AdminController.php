@@ -20,6 +20,11 @@ class AdminController extends Controller
     {
         return view('admin.login');
     }
+    public function logout()
+    {
+        Session::forget('cxy.login.userid');
+        return redirect('/');
+    }
     public function loginIn(Request $request)
     {
         if(empty($request->get('loginCaptcha')) || empty(Session::get('loginCaptcha'))){

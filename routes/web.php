@@ -15,6 +15,7 @@ Route::get('/about', 'Page\PageController@getAbout')->name('about');
 Route::get('/', 'Admin\AdminController@index')->name('index');
 Route::get('/login', 'Admin\AdminController@login')->name('login');
 Route::post('/login', 'Admin\AdminController@loginIn');
+Route::get('/logout', 'Admin\AdminController@logout')->name('logout');
 Route::get('/register', 'Admin\AdminController@register')->name('register');
 Route::get('login/captcha', 'Admin\AdminController@loginCaptchaAction')->name('captcha');
 
