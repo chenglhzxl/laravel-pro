@@ -19,7 +19,7 @@ function article_delete(id) {
     layer.confirm('你确定要删除该文章吗？', {icon: 3, title: '提示'}, function (index) {
         $.ajax({
             type: 'post',
-            url: '/article/delete/' + id,
+            url: '/myArticle/delete/' + id,
             success: function (res) {
                 if (res.status) {
                     layer.msg(res.msg, {time: 1000}, function () {

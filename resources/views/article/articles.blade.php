@@ -62,21 +62,21 @@
     <script>
         function select_page() {
             var current_page = $("#current_page").val(), per_page = $('#per_page').val();
-            location.href = '{{route('article')}}' + '?per_page=' + per_page + '&current_page=' + current_page;
+            location.href = '{{route('myArticle')}}' + '?per_page=' + per_page + '&current_page=' + current_page;
         }
         function btn_paging_prev(current_page) {
             var per_page = $('#per_page').val(), page = current_page - 1;
             if (page == 0) {
                 return;
             }
-            location.href = '{{route('article')}}' + '?per_page=' + per_page + '&current_page=' + page;
+            location.href = '{{route('myArticle')}}' + '?per_page=' + per_page + '&current_page=' + page;
         }
         function btn_paging_next(current_page) {
             var per_page = $('#per_page').val(), page = current_page + 1, last_page = '{{$response['pagination']['last_page']}}';
             if (page > last_page) {
                 return;
             }
-            location.href = '{{route('article')}}' + '?per_page=' + per_page + '&current_page=' + page;
+            location.href = '{{route('myArticle')}}' + '?per_page=' + per_page + '&current_page=' + page;
         }
     </script>
 @endsection
@@ -84,7 +84,7 @@
 @section('content')
     <section class="content">
         <div>
-            <span>文章</span> | 文章列表
+            <span>文章</span> | 文章列表 <a style="text-decoration: underline" href="{{route('myArticle-add')}}" target="_blank">新增文章</a>
         </div>
         <table class="layui-table">
             <colgroup>
@@ -111,8 +111,7 @@
                     <td>{{$articleList['abstract']}}</td>
                     {{--<td>{{$articleList['content']}}</td>--}}
                     <td>{{$articleList['created_at']}}</td>
-                    <td><a href="{{route('article-edit',['id'=>$articleList['id']])}}">编辑</a> | <a href="javascript:;" onclick="article_delete({{$articleList['id']}})">删除</a></td>
-{{--                    <td><a href="{{route('article-edit',['id'=>$articleList['id']])}}">编辑</a> | 删除</td>--}}
+                    <td><a href="{{route('myArticle-edit',['id'=>$articleList['id']])}}">编辑</a> | <a href="javascript:;" onclick="article_delete({{$articleList['id']}})">删除</a></td>
                 </tr>
             @endforeach
             @if(empty($articleLists))

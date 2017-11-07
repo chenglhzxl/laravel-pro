@@ -19,10 +19,15 @@ Route::get('/logout', 'Admin\AdminController@logout')->name('logout');
 Route::get('/register', 'Admin\AdminController@register')->name('register');
 Route::get('login/captcha', 'Admin\AdminController@loginCaptchaAction')->name('captcha');
 
+//全部视频
+Route::get('/allVideos', 'Video\VideoController@getVideoLists')->name('allVideos');
 
-Route::get('/article', 'Article\ArticleController@getArticleLists')->name('article');
-Route::get('/article/add', 'Article\ArticleController@articleAdd')->name('article-add');
-Route::post('/article/add', 'Article\ArticleController@postArticleAdd')->name('article-add-post');
-Route::get('/article/edit', 'Article\ArticleController@articleEdit')->name('article-edit');
-Route::post('/article/edit/{id}', 'Article\ArticleController@postArticleEdit')->name('article-edit-post');
-Route::post('/article/delete/{id}', 'Article\ArticleController@articleDelete')->name('article-delete');
+//文章教程
+
+//我的文章
+Route::get('/myArticle', 'Article\ArticleController@getArticleLists')->name('myArticle');
+Route::get('/myArticle/add', 'Article\ArticleController@articleAdd')->name('myArticle-add');
+Route::post('/myArticle/add', 'Article\ArticleController@postArticleAdd')->name('myArticle-add-post');
+Route::get('/myArticle/edit', 'Article\ArticleController@articleEdit')->name('myArticle-edit');
+Route::post('/myArticle/edit/{id}', 'Article\ArticleController@postArticleEdit')->name('myArticle-edit-post');
+Route::post('/myArticle/delete/{id}', 'Article\ArticleController@articleDelete')->name('myArticle-delete');

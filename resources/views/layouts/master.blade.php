@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/css/kindeditor/themes/default/default.css"/>
     <link rel="stylesheet" href="/css/kindeditor/plugins/code/prettify.css"/>
     <link rel="stylesheet" href="/css/chenglh.css">
+    <link rel="stylesheet" href="/css/page.css">
     <link rel="stylesheet" href="/css/bootstrap.css">
     @yield('css')
 </head>
