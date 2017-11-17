@@ -31,3 +31,4 @@ Route::post('/myArticle/add', 'Article\ArticleController@postArticleAdd')->name(
 Route::get('/myArticle/edit', 'Article\ArticleController@articleEdit')->name('myArticle-edit');
 Route::post('/myArticle/edit/{id}', 'Article\ArticleController@postArticleEdit')->name('myArticle-edit-post');
 Route::post('/myArticle/delete/{id}', 'Article\ArticleController@articleDelete')->name('myArticle-delete');
+Route::get('/myArticle/review', 'Article\ArticleController@articleReview')->name('myArticle-review');

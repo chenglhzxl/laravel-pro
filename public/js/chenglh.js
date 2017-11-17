@@ -46,11 +46,11 @@ function submitArticle(articleid) {
             $.ajax({
                 type: 'post',
                 data: data,
-                url: '/article/edit/' + articleid,
+                url: '/myArticle/edit/' + articleid,
                 success: function (res) {
                     if (res.status) {
                         layer.msg(res.msg, {time: 1000}, function () {
-                            location.href = '/article';
+                            location.href = '/myArticle';
                         })
                     } else {
                         alert(res.msg)
@@ -61,11 +61,11 @@ function submitArticle(articleid) {
             $.ajax({
                 type: 'post',
                 data: data,
-                url: '/article/add',
+                url: '/myArticle/add',
                 success: function (res) {
                     if (res.status) {
                         layer.msg(res.msg, {time: 1000}, function () {
-                            location.href = '/article';
+                            location.href = '/myArticle';
                         })
                     } else {
                         alert(res.msg)

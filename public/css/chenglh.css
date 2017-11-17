@@ -41,7 +41,23 @@ main{padding-bottom:100px;background-color: #bdb76b;}/* main的padding-bottom值
     font-style: oblique;
 }
 
+.head-title {
+    text-align: center;
+    background: #f6f7f7;
+    line-height: 45px;
+    color: #00a9ac;
+    padding-top: 20px;
+}
 
+.head-title .news-title {
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.head-title .news-reporter {
+    font-size: 13px;
+    color: #C1C1C1;
+}
 
 footer {
     position:absolute;

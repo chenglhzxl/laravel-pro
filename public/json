@@ -1,0 +1,32 @@
+{
+  "slide":[
+    {
+      "number": 0,
+      "bgColor": "#1",
+      "imageUrl": "/main/index",
+      "title": "安畅网络完成B轮融资",
+      "text": "安畅网络完成B轮融资",
+      "button": true,
+      "link": "",
+      "libsLink" : "http://www/baidu.com"
+    }, {
+      "number": 1,
+      "bgColor": "#2",
+      "imageUrl": "/main/index",
+      "title": "安畅网络完成B轮融资",
+      "text": "安畅网络完成B轮融资",
+      "button": true,
+      "link": "",
+      "libsLink" : "http://www/baidu.com"
+    }, {
+      "number": 2,
+      "bgColor": "#3",
+      "imageUrl": "/main/index",
+      "title": "安畅网络完成B轮融资",
+      "text": "安畅网络完成B轮融资",
+      "button": true,
+      "link": "",
+      "libsLink" : "http://www/baidu.com"
+    }
+  ]
+}
