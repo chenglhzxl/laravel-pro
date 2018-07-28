@@ -105,13 +105,15 @@
         text-align: center;
         width: 300px;
     }
+    .register{
+        float: right;
+    }
 </style>
 @endsection
 
 @section('content')
     <div class="content">
         <div class="login-modal-pro">
-
             <div class="header-logo">
                 <img src="/images/index.jpeg" class="logo">
             </div>
@@ -157,14 +159,14 @@
                     登录中……
                 </button>
             </form>
-            <button class="register-btn" id="register">注册</button>
+            <span id="register" class="register">没有账号？<a style="color: rgb(212, 152, 210)">去注册一个</a></span>
         </div>
     </div>
 @endsection
 @section('script')
     <script>
         $('#register').click(function () {
-            alert(123)
+            location.href = '/register';
         })
     </script>
 @endsection

@@ -60,16 +60,16 @@
 <body>
 
 <div id="wrapper">
-    <h1>CHENGLHAIZXL.COM</h1>
+    <h1>LOVEFOREVER.COM</h1>
     <h2>我爱程序媛</h2>
-    <p><a href="http://weibo.com/u/1712433191" target="_blank">全部视频</a></p>
-    <p><a href="https://github.com/chenglhzxl" target="_blank">文章教程</a></p>
+    {{--<p><a href="http://weibo.com/u/1712433191" target="_blank">全部视频</a></p>--}}
     {{--<p><a href="http://weibo.com/u/1712433191" target="_blank">学习视频</a></p>--}}
 
-    <p><a href="{{route('myArticle')}}" target="_blank">我的文章</a></p>
+    {{--<p><a href="{{route('myArticle')}}" target="_blank">我的文章</a></p>--}}
     @if(getCurrentUser())
+        <p><a href="{{route('allArticle')}}" target="_blank">全部文章</a></p>
         <p><a href="{{route('myArticle')}}" target="_blank">我的文章</a></p>
-        <p><a href="{{route('logout')}}">退出</a></p>
+        <p><a href="{{route('logout')}}">退出登录</a></p>
     @else
     <p><a href="{{route('login')}}">登录</a></p>
     @endif

@@ -3,17 +3,24 @@
 
 
 @section('css')
-
+<style>
+    .article-content-body{
+        padding: 15px;
+    }
+</style>
 @endsection
 
 @section('content')
-    <div style="min-height: 650px">
+    <div style="min-height: 500px">
         <div class="head-title">
-            <p class="news-title">靖江恒艾健康服务产业园签约奠基 项目总投资50.5亿元</p>
-            <p class="news-reporter">2017-3-15 8:57 靖江日报 </p>
+            <p class="news-title">{{$article['title']}}</p>
+            <p class="news-reporter">
+                <span>{{$article['created_at']}}</span>
+                <span>{{$article['author']}}</span>
+            </p>
         </div>
-        <div>
-            {{$article['content']}}
+        <div class="article-content-body">
+            {!! $article['content'] !!}
         </div>
     </div>
 @endsection

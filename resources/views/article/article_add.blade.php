@@ -28,6 +28,11 @@
                     <label for="abstract">文章摘要</label>
                     <input type="text" class="form-control" style="width: 30%"id="abstract" placeholder="请输入摘要" @if(isset($article)) value="{{$article->abstract}}" @endif>
                 </div>
+                <div>
+                    <label for="secret">隐私设置</label>
+                    <input type="radio" name="radio" value="1" id="radio1" @if((isset($article) && array_get($article,'is_secret')===1) || !isset($article)) checked @endif>私密</input>
+                    <input type="radio" name="radio" value="0" id="radio2" @if(isset($article) && array_get($article,'is_secret')===0) checked @else @endif>公开</input>
+                </div>
                 <div class="form-group">
                     <label for="creatTime">录入时间</label>
                     <input type="text" class="form-control" style="width: 30%"id="creatTime" value=" @if(isset($article)) {{$article->created_at}} @else {{$now}} @endif " readonly>

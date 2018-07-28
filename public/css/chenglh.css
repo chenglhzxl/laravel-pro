@@ -60,7 +60,7 @@ main{padding-bottom:100px;background-color: #bdb76b;}/* main的padding-bottom值
 }
 
 footer {
-    position:absolute;
+    /*position:absolute;*/
     bottom:0;
     width:100%;
     background-color: #eeeeee;

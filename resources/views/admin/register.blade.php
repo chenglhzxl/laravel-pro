@@ -29,9 +29,9 @@
             display: inline-block;
             height: 30px;
             font-size: 12px;
-            padding: 0 10px;
+            padding: 0 10px 0 0;
             vertical-align: middle;
-            width: calc(100% - 37px);
+            width: calc(100% - 60px);
             outline: none;
             border: 0;
         }
@@ -95,6 +95,10 @@
             text-align: center;
             width: 300px;
         }
+        .user-icon {
+            margin-left: 7px;
+            font-size: 12px;
+        }
     </style>
 @endsection
 
@@ -105,34 +109,46 @@
             <div class="header-logo">
                 <img src="/images/index.jpeg" class="logo">
             </div>
-            @if($errors->has('captcha'))
-                <div class="submit-error-tips active">{{ $errors->first('captcha') }}</div>
+            @if($errors->has('message'))
+                <div class="submit-error-tips active">{{ $errors->first('message') }}</div>
+            @endif
+            @if($errors->has('name'))
+                <div class="submit-error-tips active">{{ $errors->first('name') }}</div>
             @endif
             @if($errors->has('email'))
                 <div class="submit-error-tips active">{{ $errors->first('email') }}</div>
             @endif
-            <form id="login" method="POST" action="{{ url('/login') }}">
+            @if($errors->has('password'))
+                <div class="submit-error-tips active">{{ $errors->first('password') }}</div>
+            @endif
+            <form id="register" method="POST" action="{{ url('/registering') }}">
                 {{ csrf_field() }}
                 <div class="input-wrapper">
-                    <img class="user-icon" src="/images/user.png">
-                    <input class="input" type="text" name="email" id="email" placeholder="请输入用户名" autocomplete="off">
+                    {{--<img class="user-icon" src="/images/user.png">--}}
+                    <span class="user-icon">用户名：</span>
+                    <input class="input" type="text" name="name" id="name" placeholder="请输入用户名" autocomplete="off">
                 </div>
                 <div class="input-wrapper">
-                    <img class="user-icon" src="/images/password.png">
+                    <span class="user-icon">邮  箱：</span>
+                    <input class="input" type="email" name="email" id="email" placeholder="请输入邮箱" autocomplete="off">
+                </div>
+                <div class="input-wrapper">
+                    {{--<img class="user-icon" src="/images/password.png">--}}
+                    <span class="user-icon">密  码：</span>
                     <input class="input" type="password" name="password" id="password" placeholder="请输入密码" autocomplete="off">
                 </div>
-                <div class="code-wrapper">
-                    <input type="text" placeholder="验证码" name="loginCaptcha" id="loginCaptcha" class="input"/>
-                    <p onclick="$('#captcha').click()" class="change-code">看不清?</p>
-                    <div class="code">
-                        <img id="captcha" src="{{ route('captcha',['login'])}}" style="cursor:pointer"
-                             onclick="this.src='{{ route('captcha','1')}}'+Math.random()" alt="验证码"
-                             title="点击刷新"
-                             width="90" height="30" border="0">
-                    </div>
-                </div>
-                <button class="login-btn" id="loginIn">登录</button>
-                <button class="login-btn" id="logging" style="display: none"><div class="ball-spin-fade-loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>登录中……</button>
+                {{--<div class="code-wrapper">--}}
+                    {{--<input type="text" placeholder="请输入验证码" name="loginCaptcha" id="loginCaptcha" class="input" style="padding-left: 10px"/>--}}
+                    {{--<p onclick="$('#captcha').click()" class="change-code">看不清?</p>--}}
+                    {{--<div class="code">--}}
+                        {{--<img id="captcha" src="{{ route('captcha',['login'])}}" style="cursor:pointer"--}}
+                             {{--onclick="this.src='{{ route('captcha','1')}}'+Math.random()" alt="验证码"--}}
+                             {{--title="点击刷新"--}}
+                             {{--width="90" height="30" border="0">--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                <button class="login-btn" id="registering">注册</button>
+                <button class="login-btn" id="logging" style="display: none"><div class="ball-spin-fade-loader"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>加载中……</button>
             </form>
         </div>
     </div>

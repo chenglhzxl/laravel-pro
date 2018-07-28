@@ -34,12 +34,13 @@ function article_delete(id) {
 }
 
 function submitArticle(articleid) {
-    var title = $("#title").val(), abstract = $("#abstract").val(), content = $("#content").val();
+    var title = $("#title").val(), abstract = $("#abstract").val(), content = $("#content").val(),secret = $("input[name='radio']:checked").val();
     if (title && abstract && content) {
         var data = {
             'title': title,
             'abstract': abstract,
             'content': content,
+            'secret': secret,
             'creatTime': $("#creatTime").val(),
         };
         if (articleid!="''") {
@@ -77,4 +78,8 @@ function submitArticle(articleid) {
         layer.msg('请填写完整内容！')
         return false;
     }
+}
+
+function main_page() {
+    location.href = '/';
 }
