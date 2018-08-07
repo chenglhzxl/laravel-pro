@@ -28,7 +28,7 @@
                     <td>{{$articleList['title']}}</td>
                     <td>{{$articleList['abstract']}}</td>
                     <td>{{$articleList['created_at']}}</td>
-                    <td><a href="{{route('myArticle-review',['id'=>$articleList['id']])}}">查看</a> |<a href="{{route('myArticle-edit',['id'=>$articleList['id']])}}">编辑</a> | <a href="javascript:;" onclick="article_delete({{$articleList['id']}})">删除</a></td>
+                    <td><a href="{{route('article-review',['id'=>$articleList['id']])}}">查看</a> |<a href="{{route('myArticle-edit',['id'=>$articleList['id']])}}">编辑</a> | <a href="javascript:;" onclick="article_delete({{$articleList['id']}})">删除</a></td>
                 </tr>
             @endforeach
             @if(empty($results->items()))
