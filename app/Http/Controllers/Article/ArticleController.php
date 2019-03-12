@@ -14,30 +14,15 @@ class ArticleController extends Controller
 {
     public function getArticleLists(Request $request)
     {
-//        $params = $request->all();
         $user = getCurrentUser();
         $articleList = Article::select('*')->where('isdeleted', 0)->where('author',$user)
                                     ->orderBy("id", "desc");
-//        $limit = isset($params["per_page"]) ? intval($params["per_page"]) : 10;
-//        $current = isset($params["current_page"]) ? intval($params["current_page"]) : '';
         $results = $articleList->paginate(10)->appends($request->all());
-//        $response = [
-//            'pagination' => [
-//                'total' => $results->total(),
-//                'per_page' => $results->perPage(),
-//                'current_page' => $results->currentPage(),
-//                'last_page' => $results->lastPage(),
-//                'from' => $results->firstItem(),
-//                'to' => $results->lastItem()
-//            ]
-//        ];
-//        $articleLists = $articleList->orderBy("id", "desc")->get()->toarray();
         return view('article.articles', compact('results'));
     }
 
     public function getAllArticleLists(Request $request)
     {
-//        $params = $request->all();
         $user = getCurrentUser();
         $articleList = Article::select('*')->where('isdeleted', 0)
             ->where('is_secret',0)

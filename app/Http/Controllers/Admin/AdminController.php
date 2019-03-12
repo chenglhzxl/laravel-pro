@@ -16,7 +16,7 @@ use Maatwebsite\Excel\Excel;
 class AdminController extends Controller
 {
 
-    public function test_object()
+    public function get_password()
     {
         $t = time();
         $time = date('Y-m-d H:i:s',time());
@@ -28,7 +28,6 @@ class AdminController extends Controller
         }
         $i = 1;
         while($i<=500){
-            echo $i.'/t';
             if(strlen($i)==1) {
                 $len = '00' . $i;
             }elseif(strlen($i)==2){
@@ -37,10 +36,104 @@ class AdminController extends Controller
                 $len = $i;
             }
             $i++;
-            fwrite($fhandle,"TEST0$len\t123456\t"."\r\n");
+            fwrite($fhandle,"TEST0$len\t{$pass}\tsystem\t{$time}\t0\t"."\r\n");
         }
         echo "写入成功，耗时：".(time()-$t);
     }
+// LOAD DATA LOCAL INFILE '/Users/zhuxiaoliang/Desktop/password.sql' INTO TABLE customer_password (`customerid`,`password`,`created_by`,`created_at`,`first_login`);
+
+    public function get_profile()
+    {
+        $t = time();
+        $time = date('Y-m-d H:i:s',time());
+        set_time_limit(1000);
+        $myfile = "/Users/zhuxiaoliang/Desktop/profile.sql";
+        $fhandle = fopen($myfile,'wb');
+        $i = 1;
+        while($i<=500){
+            if(strlen($i)==1) {
+                $len = '00' . $i;
+            }elseif(strlen($i)==2){
+                $len = '0'.$i;
+            }else{
+                $len = $i;
+            }
+            $i++;
+            fwrite($fhandle,"TEST0$len\tceshi$len\t1\t中国\t342222199107204542\t身份证\t1991-04-10\t13654694455\tSP\tSO\tSO\tCN100177\t1\t2018-05-07 00:00:00\tsystem\t{$time}\t9000$len\tvivi9000\t2310060\t"."\r\n");
+        }
+        echo "写入成功，耗时：".(time()-$t);
+    }
+// LOAD DATA LOCAL INFILE '/Users/zhuxiaoliang/Desktop/profile.sql' INTO TABLE customer_profile(`customerid`,`namecn`,`gender`,`nationality`,`tincode`,`tincodetype`,`birthday`,`phoneno1`,`type`,`subtype`,`sptype`,`upline`,`status`,`renewdate`,`created_by`,`created_at`);
+
+
+    public function viviGet_profile()
+    {
+        $t = time();
+        $time = date('Y-m-d H:i:s',time());
+        set_time_limit(1000);
+        $myfile = "/Users/zhuxiaoliang/Desktop/profilevivi.sql";
+        $fhandle = fopen($myfile,'wb');
+        $i = 1;
+        while($i<=500){
+            if(strlen($i)==1) {
+                $len = '00' . $i;
+            }elseif(strlen($i)==2){
+                $len = '0'.$i;
+            }else{
+                $len = $i;
+            }
+            $i++;
+            fwrite($fhandle,"TEST0$len\tceshi$len\t1\t中国\t342222199107204542\t身份证\t1991-04-10\t13654694455\tSP\tSO\tSO\tCN100177\t1\t2020-05-07 00:00:00\tsystem\t{$time}\t9000$len\tvivi9000$len\t2310060\t"."\r\n");
+        }
+        echo "写入成功，耗时：".(time()-$t);
+    }
+// LOAD DATA LOCAL INFILE '/Users/zhuxiaoliang/Desktop/profile.sql' INTO TABLE customer_profile(`customerid`,`namecn`,`gender`,`nationality`,`tincode`,`tincodetype`,`birthday`,`phoneno1`,`type`,`subtype`,`sptype`,`upline`,`status`,`renewdate`,`created_by`,`created_at`,`cpId`,`customerNumber`,`upline_cpId`);
+// update `customer_profile` as a set cpId = CONCAT('90',a.id),`customerNumber` =  CONCAT('comp90',a.id) where a.id >= 40969;
+
+    public function get_address()
+    {
+        $t = time();
+        $time = date('Y-m-d H:i:s',time());
+        set_time_limit(1000);
+        $myfile = "/Users/zhuxiaoliang/Desktop/address.sql";
+        $fhandle = fopen($myfile,'wb');
+        $i = 1;
+        while($i<=500){
+            // echo $i.'/t';
+            if(strlen($i)==1) {
+                $len = '00' . $i;
+            }elseif(strlen($i)==2){
+                $len = '0'.$i;
+            }else{
+                $len = $i;
+            }
+            fwrite($fhandle,"wangduanli\t2\t10\t107\t1170\t呼兰路4号楼\t18839261967\t1\tsystem\t{$time}\t9000$len\t"."\r\n");
+            $i++;
+        }
+        echo "写入成功，耗时：".(time()-$t);
+    }
+// LOAD DATA LOCAL INFILE '/Users/zhuxiaoliang/Desktop/address.sql' INTO TABLE customer_address(`receivername`,`type`,`province_id`,`city_id`,`district_id`,`address`,`phoneno`,`status`,`created_by`,`created_at`,`customerprofile_id`);
+// update `customer_address` as a set cpId = CONCAT('90',a.customerprofile_id),addressId = a.customerprofile_id where a.customerprofile_id >= 40969;
+
+
+    public function get_wechat()
+    {
+        $t = time();
+        $time = date('Y-m-d H:i:s',time());
+        set_time_limit(1000);
+        $myfile = "/Users/zhuxiaoliang/Desktop/wechat.sql";
+        $fhandle = fopen($myfile,'wb');
+        $i = 18756773228;
+        while($i<=18756773727){
+            fwrite($fhandle,"$i\toJuYu1eqapy8YaIv$i\t10\tsystem\ttest$i\t1\thttp://thirdwx.qlogo.cn/mmopen/iccd1Z4XsCwcYwFLric01ibNnicfJnhh5N8Ur96mHzNtuxdVIahx6Rl4vLwzWZbHPEkEJ0xeHiciaR5DqpuwfVkYAu9Zyzibasj5ZRI/132\tow7jr0TRNRzj9_DxRS_A$i\t"."\r\n");
+            $i++;
+        }
+        echo "写入成功，耗时：".(time()-$t);
+    }
+
+// LOAD DATA LOCAL INFILE '/Users/zhuxiaoliang/Desktop/wechat.sql' INTO TABLE customer_wechat(`customerprofile_id`,`openid`,`province_id`,`created_by`,`nickname`,`sex`,`headimgurl`,`unionid`);
+
+
 
     public function getCurrentDate($tags='-')
     {
@@ -122,6 +215,53 @@ class AdminController extends Controller
 //            $str = json_decode($str,true);
             dd($str);
         }
+    }
+
+    public function test()
+    {
+        /*
+        $a= "hello";
+        $b= &$a;
+        unset($b);
+        $b="world";
+        echo $a;*/
+       /* $var = FALSE;
+        if (empty($var)){
+            echo 'null';
+        }else{
+            echo 'have value';
+        }
+       */
+        /*$str = "LAMP";
+        $str1 = "LAMPB";
+        $strc = strcmp($str,$str1);
+        switch ($strc){
+            case '1':
+                echo"str > str1";
+                break;
+            case '–1':
+                echo"str < str1";
+                break;
+            case 0:
+                echo"str=str1";
+                break;
+            default:
+                echo"str <> str1";
+        }
+        */
+        /*
+        if ($this->p()){
+            echo 'false';
+        }else{
+            echo 'true';
+        }*/
+
+        $vip_type = ['VIP','VIP1','VIP2','VIP3','VIP4','SVIP','SVIP1','SVIP2','SVIP3','SVIP4'];
+        $type = 'SR';
+        dd(!in_array($type,$vip_type));
+    }
+    function p(){
+        return 1;
     }
     public function index()
     {
