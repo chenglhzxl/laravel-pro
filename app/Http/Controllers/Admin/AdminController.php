@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\CommonExport;
 use App\Models\Article;
 use App\Models\Users;
 use Illuminate\Http\Request;
@@ -15,6 +16,27 @@ use Maatwebsite\Excel\Excel;
 
 class AdminController extends Controller
 {
+
+    public function export()
+    {
+        $data = [['011','123456'],['011','123457']];
+        $exportData[]=[
+            "序号","仓库编号","订单号"
+        ];
+        $i = 0;
+        foreach ($data as $item){
+            $i ++;
+            $exportData[] = [
+                $i,
+                $item[0],
+                $item[1],
+            ];
+        }
+        if (count($exportData) > 0){
+            $export = new CommonExport($exportData);
+            return Excel::download();
+        }
+    }
 
     public function get_password()
     {
